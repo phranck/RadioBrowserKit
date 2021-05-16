@@ -16,7 +16,6 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "10.7.3"),
         .package(name: "SwiftyBeaver", url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "1.9.3"),
         .package(path: "RapidAPI")
     ],
@@ -24,7 +23,6 @@ let package = Package(
         .target(
             name: "RadioBrowser",
             dependencies: [
-                "Realm", .product(name: "RealmSwift", package: "Realm"),
                 "SwiftyBeaver",
                 "RapidAPI"
             ],
