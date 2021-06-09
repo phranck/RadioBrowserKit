@@ -1,30 +1,27 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "RadioBrowser",
+    name: "RadioTime",
     platforms: [
-        .iOS(.v14),
-        .macOS(.v10_15)
+        .iOS(.v14)
     ],
     products: [
         .library(
-            name: "RadioBrowser",
-            targets: ["RadioBrowser"]
+            name: "RadioTime",
+            targets: ["RadioTime"]
         )
     ],
     dependencies: [
-        .package(name: "SwiftyBeaver", url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "1.9.3"),
-        .package(path: "RapidAPI")
+        .package(name: "SwiftyBeaver", url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "1.9.5"),
     ],
     targets: [
         .target(
-            name: "RadioBrowser",
+            name: "RadioTime",
             dependencies: [
                 "SwiftyBeaver",
-                "RapidAPI"
             ],
             path: "Sources"
         )

@@ -1,6 +1,6 @@
-# RadioBrowser
+# RadioTime
 
-Radio Browser API for [radio-browser.info](https://api.radio-browser.info).
+Package which provides access to the [TuneIn Radiotime API](http://opml.radiotime.com).
 
 ## How to use
 

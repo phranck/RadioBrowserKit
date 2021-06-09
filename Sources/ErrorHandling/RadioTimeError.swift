@@ -4,14 +4,15 @@
 
 import Foundation
 
-public enum RadioBrowserError: Error {
+public enum RadioTimeError: LocalizedError {
     case undefined(error: Error)
     /// Thrown when `data` response on `URLSession.dataTask(..)` isn't readable
     case invalidResponseData
     case malformedURLString(urlString: String)
+    case httpStatusCode
 }
 
-extension RadioBrowserError: CustomStringConvertible {
+extension RadioTimeError: CustomStringConvertible {
     public var description: String {
         switch self {
             case .undefined:
@@ -20,6 +21,8 @@ extension RadioBrowserError: CustomStringConvertible {
                 return "Unable to read response data"
             case .malformedURLString(let urlString):
                 return "Malformed URL string: \(urlString)"
+            case .httpStatusCode:
+                return "Wrong HTTP status code"
         }
     }
 }
