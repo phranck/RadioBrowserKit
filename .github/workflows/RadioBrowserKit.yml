@@ -10,9 +10,14 @@ jobs:
   build:
     runs-on: macos-11
     steps:
+    - name: XCResultTool
+      uses: kishikawakatsumi/xcresulttool@v1.0.3
+      with:
+          path: RadioBrowserKitResults.xcresult
+      if: success() || failure()
     - name: Checkout
       uses: actions/checkout@v2
     - name: Compile...
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
     - name: Run Tests...
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -scheme RadioBrowserKit -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -scheme RadioBrowserKit -resultBundlePath RadioBrowserKitResults -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
