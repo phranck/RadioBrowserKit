@@ -39,13 +39,6 @@ public class RadioBrowser: ObservableObject {
         setupCloudSync()
 
         stations(by: nil, countryCode: Locale.current.regionCode, order: .votes, orderRevers: true, offset: nil, limit: 25)
-
-        log.info("--------------------")
-        let sorted = Locale.regions.sorted { $0.regionName < $1.regionName }
-        for region in sorted {
-            log.info(region)
-        }
-        log.info("--------------------")
     }
 
     deinit {
