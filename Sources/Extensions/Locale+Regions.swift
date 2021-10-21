@@ -25,25 +25,17 @@
 import Foundation
 
 extension Locale {
-
     struct LocaleRegion {
-        let regionCode: String
-        let regionName: String
+        let code: String
+        let name: String
     }
 
-    static var regions: [LocaleRegion] {
-        var regions: [LocaleRegion] = []
-
-        if regions.isEmpty {
-            for regionCode in Locale.isoRegionCodes {
-                if let regionName = Locale.current.localizedString(forRegionCode: regionCode) {
-                    let region = LocaleRegion(regionCode: regionCode, regionName: regionName)
-                    regions.append(region)
-                }
+    static var regions: [LocaleRegion] = {
+        Locale.isoRegionCodes.compactMap { reagionCode in
+            if let region = Locale.current.localizedString(forRegionCode: reagionCode) {
+                return LocaleRegion(code: reagionCode, name: region)
             }
+            return nil
         }
-
-        return regions
-    }
-
+    }()
 }
