@@ -29,10 +29,14 @@ import Zephyr
 let log = SwiftyBeaver.self
 
 public class RadioBrowser: ObservableObject {
-    public static let version = "0.1.2"
-    public static let build = 1
-
+    internal static let version = "0.1.3"
+    internal static let build = 1
     internal static let apiServer = RadioBrowserServer()
+
+    // MARK: - Public API
+
+    public static var httpUserAgent: String = "\(RadioBrowser.self)/\(RadioBrowser.version)"
+    public static var apiResponseFormat: ApiResponseFormat = .json
 
     @Published public internal(set) var stations: [Station] = []
     @Published public internal(set) var favorites: [Station] = []
@@ -43,7 +47,8 @@ public class RadioBrowser: ObservableObject {
         setupCloudSync()
         startCloudSync()
 
-        stations(by: nil, countryCode: Locale.current.regionCode, order: .votes, orderRevers: true, offset: nil, limit: 25)
+        /// Prefetch all stations by current region code
+        searchStations(withName: nil, countryCode: Locale.current.regionCode, order: .clickCount, orderRevers: true, offset: 0, limit: 25)
     }
 
     deinit {

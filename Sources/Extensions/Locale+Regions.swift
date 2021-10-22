@@ -24,7 +24,7 @@
 
 import Foundation
 
-extension Locale {
+public extension Locale {
 
     struct LocaleRegion {
         let code: String

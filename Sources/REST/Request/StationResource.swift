@@ -24,7 +24,7 @@
 
 import Foundation
 
-struct StationsResource: ApiResource {
+struct StationResource: ApiResource {
     typealias ModelType = [Station]
 
     var endpoint: ApiEndpoints

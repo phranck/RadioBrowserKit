@@ -39,6 +39,8 @@ extension NetworkRequest {
         request.cachePolicy = .returnCacheDataElseLoad
         request.addValue(RadioBrowser.httpUserAgent, forHTTPHeaderField: "User-Agent")
 
+        log.debug(request)
+
         DispatchQueue.global().async {
             let task = URLSession.shared.dataTask(with: request) { data, response, error -> Void in
                 if let error = error {
@@ -65,6 +67,8 @@ extension NetworkRequest {
                                     completion(.failure(RadioBrowserError.jsonDecoding(error: error)))
                             }
                         })
+                    case 503:
+                        completion(.failure(RadioBrowserError.http503ServiceUnavailable(error: error)))
                     default:
                         completion(.failure(RadioBrowserError.unhandledStatusCode(statusCode: statusCode)))
                 }

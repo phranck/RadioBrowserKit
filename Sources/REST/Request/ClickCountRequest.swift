@@ -24,16 +24,15 @@
 
 import Foundation
 
-internal class ClickCountViewModel: ApiViewModel {
+internal class ClickCountRequest: ApiFetch {
 
-    internal func updateClickCount(for stationUUID: String) {
+    internal func updateClickCount(for stationUUID: String, completion: ((ClickCount?) -> Void)? = nil) {
         var resource = ClickCountResource()
         resource.path = stationUUID
 
         performRequest(with: resource) { result in
-            if let result = result,
-               result.ok == true {
-                log.debug("[\(result.name)] click count updated")
+            if let completion = completion {
+                completion(result)
             }
         }
     }

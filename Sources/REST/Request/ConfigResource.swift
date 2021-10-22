@@ -22,13 +22,33 @@
  THE SOFTWARE.
  */
 
-import XCTest
-@testable import RadioBrowserKit
+import Foundation
 
-final class RadioBrowserKitTests: XCTestCase {
+struct ConfigResource: ApiResource {
+    typealias ModelType = Config
 
-    func testVersion() throws {
-        XCTAssertEqual(RadioBrowser.version, "0.1.3")
+    var endpoint: ApiEndpoints {
+        .config
     }
 
+    var path: String?
+    var bitrateMax: Int?
+    var bitrateMin: Int?
+    var codec: String?
+    var country: String?
+    var countryCode: String?
+    var hasExtendedInfo: Bool?
+    var hasGeoInfo: Bool?
+    var language: String?
+    var limit: Int?
+    var name: String?
+    var offset: Int?
+    var order: ApiResponseOrder?
+    var reverse: Bool?
+    var searchterm: String?
+    var seconds: Int?
+    var state: String?
+    var tag: String?
+    var tagList: String?
+    var hideBroken: Bool?
 }

@@ -24,41 +24,36 @@
 
 import Foundation
 
-internal class StationViewModel: ApiViewModel {
+internal protocol ApiFetchable {
+    func fetchStations()
+}
 
-    internal func search(byName name: String?, countryCode: String?, order: ApiResponseOrder?, reverse: Bool?, limit: Int?, offset: Int?) {
-        var resource = StationsResource(endpoint: .stationsSearch)
-        resource.name = name
-        resource.countryCode = countryCode
-        resource.order = order
-        resource.reverse = reverse
-        resource.limit = limit
-        resource.offset = offset
+public class ApiFetch: ApiFetchable {
+    public let api: RadioBrowser
 
-        stations(with: resource)
+    public init(api: RadioBrowser) {
+        self.api = api
     }
 
-    internal func stations(byName name: String) {
-        var resource = StationsResource(endpoint: .stationsByName)
-        resource.path = name
+    internal func performRequest<Resource: NetworkResource>(with resource: Resource, withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
+        let request = ApiRequest(resource: resource)
+        request.execute { [weak self] result in
+            switch result {
+                case .success(let result):
+                    completion(result)
 
-        stations(with: resource)
-    }
-
-    private func stations(with resource: StationsResource) {
-
-        api.isLoading = true
-        performRequest(with: resource) { result in
-            DispatchQueue.main.async {
-                if let result = result {
-                    self.api.stations = []
-                    for station in result {
-                        self.api.stations.append(station)
+                case .failure(let error):
+                    print(error)
+                    completion(nil)
+                    DispatchQueue.main.async {
+                        self?.api.error = error
                     }
-                }
-                self.api.isLoading = false
+                    break
             }
         }
     }
 
+    // MARK: - ApiFetchable
+
+    func fetchStations() {}
 }

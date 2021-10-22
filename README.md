@@ -32,6 +32,33 @@ Put this in your `Cartfile`:
 github "phranck/RadioBrowserKit" ~> 0.1
 ```
 
+## How to use it?
+
+The first thing you have to do is create an instance of the  `RadioBrowser` class. This can be done at the beginning of your app launch. For SwiftUI you can provide it as an environment object via view modifier.
+
+```Swift
+@main
+struct MyApp: App {
+    @StateObject var radioBrowserApi = RadioBrowser()
+
+    var body: some Scene {
+        WindowGroup {
+            MainView()
+                .environmentObject(radioBrowserApi)
+        }
+    }
+}
+```
+
+Actually `RadioBrowser` publishes four observed properties which you can use in your SwiftUI view automatic refreshing (a `RadioBrowserDelegate` to use it in a UIKit app will follow later):
+
+```Swift
+@Published public internal(set) var stations: [Station] = []
+@Published public internal(set) var favorites: [Station] = []
+@Published public internal(set) var error: RadioBrowserError = .none
+@Published public internal(set) var isLoading: Bool = false
+```
+
 ## Developer Notes
 
 `RadioBrowserKit` uses [GitFlow](http://githubflow.github.io). There are two branches, `main` and `develop`. The `develop` branch is the default branch. To provide (*changes*|*fixes*|*additions*) you just have to fork this repository and create your working branch with `develop` as base. If you’re done, just open a pull request.

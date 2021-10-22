@@ -35,4 +35,5 @@ public enum RadioBrowserError: Error {
     case invalidResponseData
     case jsonDecoding(error: Error)
     case malformedURLString(String)
+    case http503ServiceUnavailable(error: Error?)
 }

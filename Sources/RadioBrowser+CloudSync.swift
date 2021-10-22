@@ -31,21 +31,6 @@ extension RadioBrowser {
         case favorites
     }
 
-    internal func setupCloudSync() {
-        Zephyr.addKeysToBeMonitored(keys: [
-            RadioBrowser.CloudSyncKey.favorites.rawValue
-        ])
-        NotificationCenter.default.addObserver(self, selector: #selector(startCloudSync), name: Zephyr.keysDidChangeOnCloudNotification, object: nil)
-        log.debug("sync started")
-    }
-
-    internal func stopCloudSync() {
-        Zephyr.removeKeysFromBeingMonitored(keys: [
-            RadioBrowser.CloudSyncKey.favorites.rawValue
-        ])
-        log.debug("sync stopped")
-    }
-
     public func addToFavorites(station: Station) {
         DispatchQueue.main.async {
             self.favorites.append(station)
@@ -62,6 +47,16 @@ extension RadioBrowser {
         }
     }
 
+    // MARK: - Private Helper
+
+    internal func setupCloudSync() {
+        Zephyr.addKeysToBeMonitored(keys: [
+            RadioBrowser.CloudSyncKey.favorites.rawValue
+        ])
+        NotificationCenter.default.addObserver(self, selector: #selector(startCloudSync), name: Zephyr.keysDidChangeOnCloudNotification, object: nil)
+        log.debug("sync started")
+    }
+
     @objc internal func startCloudSync() {
         if let favoritesData = UserDefaults.standard.value(forKey: RadioBrowser.CloudSyncKey.favorites.rawValue) as? Data,
            let cloudFavorites = Array<Station>(data: favoritesData) {
@@ -69,6 +64,13 @@ extension RadioBrowser {
                 self.favorites = cloudFavorites
             }
         }
+    }
+
+    internal func stopCloudSync() {
+        Zephyr.removeKeysFromBeingMonitored(keys: [
+            RadioBrowser.CloudSyncKey.favorites.rawValue
+        ])
+        log.debug("sync stopped")
     }
 
 }

@@ -26,18 +26,34 @@ import Foundation
 
 extension RadioBrowser {
 
-    public static var httpUserAgent: String = "\(RadioBrowser.self)/\(RadioBrowser.version)"
-    public static var apiResponseFormat: ApiResponseFormat = .json
-    public static var cloudPrefix: String = "cloud"
-
-    public func stations(by name: String?, countryCode: String?, order: ApiResponseOrder?, orderRevers: Bool?, offset: Int?, limit: Int?) {
-        let model = StationViewModel(api: self)
-        model.search(byName: name, countryCode: countryCode, order: order, reverse: orderRevers, limit: limit, offset: offset)
+    public func searchStations(withName name: String?, countryCode: String?, order: ApiResponseOrder?, orderRevers: Bool?, offset: Int?, limit: Int?) {
+        let request = StationRequest(api: self)
+        request.search(byName: name, countryCode: countryCode, order: order, reverse: orderRevers, limit: limit, offset: offset)
     }
 
-    public func clickCount(for station: Station) {
-        let model = ClickCountViewModel(api: self)
-        model.updateClickCount(for: station.stationUUID)
+    public func stations(byName name: String) {
+        let request = StationRequest(api: self)
+        request.search(byName: name, countryCode: nil, order: nil, reverse: nil, limit: nil, offset: nil)
+    }
+
+    public func stations(byCountryCode countryCode: String, limit: Int? = 10) {
+        let request = StationRequest(api: self)
+        request.search(byName: nil, countryCode: countryCode, order: nil, reverse: nil, limit: limit, offset: nil)
+    }
+
+    public func updateClickCount(for station: Station, completion: ((ClickCount?) -> Void)? = nil) {
+        let request = ClickCountRequest(api: self)
+        request.updateClickCount(for: station.stationUUID, completion: completion)
+    }
+
+    public func backendConfig(completion: @escaping (Config?) -> Void) {
+        let request = ConfigRequest(api: self)
+        request.backendConfig { config in
+            if let config = config {
+                log.debug(config)
+            }
+            completion(config)
+        }
     }
 
 }

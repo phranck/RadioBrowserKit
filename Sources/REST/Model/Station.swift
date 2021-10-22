@@ -81,10 +81,11 @@ public struct Station: Decodable, Identifiable {
         return Date()
     }
 
-    private var lastCheckOkTime_ISO8601: String
+    private var lastCheckOkTime_ISO8601: String?
     public var lastCheckOkTime: Date {
         let dateFormatter = ISO8601DateFormatter()
-        if let date = dateFormatter.date(from: lastCheckOkTime_ISO8601) {
+        if let lastCheckTimeOk = lastCheckOkTime_ISO8601,
+           let date = dateFormatter.date(from: lastCheckTimeOk) {
             return date
         }
         return Date()
@@ -166,6 +167,7 @@ public struct Station: Decodable, Identifiable {
             .replacingFirst(matching: "(.+(on Radio ON))(.+)", with: "$1")
             .replacingFirst(matching: "(RADIO (BOB\\!)) (BOBs (.+))", with: "$2 $4")
             .replacingFirst(matching: "(Radio|RADIO) (BOB\\!) (.+)", with: "$2 $3")
+            .replacingFirst(matching: "(__(.+)__) (.+)", with: "$2")
 
         changeUUID = try container.decode(String.self, forKey: .changeUUID)
         stationUUID = try container.decode(String.self, forKey: .stationUUID)
@@ -190,7 +192,7 @@ public struct Station: Decodable, Identifiable {
         lastCheckOk = lastCheckOkDecoded.boolValue
 
         lastCheckTime_ISO8601 = try container.decode(String.self, forKey: .lastCheckTime_ISO8601)
-        lastCheckOkTime_ISO8601 = try container.decode(String.self, forKey: .lastCheckOkTime_ISO8601)
+        lastCheckOkTime_ISO8601 = try container.decodeIfPresent(String.self, forKey: .lastCheckOkTime_ISO8601)
         lastLocalCheckTime_ISO8601 = try container.decode(String.self, forKey: .lastLocalCheckTime_ISO8601)
         lastClickTime_ISO8601 = try container.decodeIfPresent(String.self, forKey: .lastClickTime_ISO8601)
 
@@ -229,7 +231,7 @@ extension Station: Encodable {
         try container.encode(hls.intValue, forKey: .hls)
         try container.encode(lastCheckOk.intValue, forKey: .lastCheckOk)
         try container.encode(lastCheckTime_ISO8601, forKey: .lastCheckTime_ISO8601)
-        try container.encode(lastCheckOkTime_ISO8601, forKey: .lastCheckOkTime_ISO8601)
+        try container.encodeIfPresent(lastCheckOkTime_ISO8601, forKey: .lastCheckOkTime_ISO8601)
         try container.encode(lastLocalCheckTime_ISO8601, forKey: .lastLocalCheckTime_ISO8601)
         try container.encodeIfPresent(lastClickTime_ISO8601, forKey: .lastClickTime_ISO8601)
         try container.encode(clickCount, forKey: .clickCount)

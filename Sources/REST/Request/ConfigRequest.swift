@@ -22,13 +22,16 @@
  THE SOFTWARE.
  */
 
-import XCTest
-@testable import RadioBrowserKit
+import Foundation
 
-final class RadioBrowserKitTests: XCTestCase {
+internal class ConfigRequest: ApiFetch {
 
-    func testVersion() throws {
-        XCTAssertEqual(RadioBrowser.version, "0.1.3")
+    internal func backendConfig(completion: @escaping (Config?) -> Void) {
+        let resource = ConfigResource()
+
+        performRequest(with: resource) { config in
+            completion(config)
+        }
     }
 
 }
