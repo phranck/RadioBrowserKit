@@ -24,48 +24,29 @@
 
 import SwiftUI
 import SwiftyBeaver
+import Zephyr
 
 let log = SwiftyBeaver.self
 
 public class RadioBrowser: ObservableObject {
+    public static let version = "0.1.2"
+    public static let build = 1
+
     internal static let apiServer = RadioBrowserServer()
 
-    @Published public internal(set) var stations: Set<Station> = []
-    @Published public internal(set) var favorites: Set<Station> = []
+    @Published public internal(set) var stations: [Station] = []
+    @Published public internal(set) var favorites: [Station] = []
     @Published public internal(set) var error: RadioBrowserError = .none
     @Published public internal(set) var isLoading: Bool = false
 
     public init() {
         setupCloudSync()
+        startCloudSync()
 
         stations(by: nil, countryCode: Locale.current.regionCode, order: .votes, orderRevers: true, offset: nil, limit: 25)
     }
 
     deinit {
         stopCloudSync()
-     }
+    }
 }
-
-//@propertyWrapper
-//struct StationFavorite<Value: Station> {
-//    let key: String
-//
-//    init(_ key: String) {
-//        self.key = key
-//    }
-//
-//    var wrappedValue: Value {
-//        get {
-//            if let data = UserDefaults.standard.object(forKey: key) as? Data,
-//               let user = try? JSONDecoder().decode(Value.self, from: data) {
-//                return user
-//            }
-//            return nil
-//        }
-//        set {
-//            if let encoded = try? JSONEncoder().encode(newValue) {
-//                UserDefaults.standard.set(encoded, forKey: key)
-//            }
-//        }
-//    }
-//}

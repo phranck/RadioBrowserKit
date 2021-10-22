@@ -1,5 +1,6 @@
 [![RadioBrowserKit CI](https://github.com/phranck/RadioBrowserKit/actions/workflows/RadioBrowserKit.yml/badge.svg)](https://github.com/phranck/RadioBrowserKit/actions/workflows/RadioBrowserKit.yml)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 ![Tag](https://img.shields.io/github/tag/phranck/RadioBrowserKit.svg?color=blue&label=Release)
 
 

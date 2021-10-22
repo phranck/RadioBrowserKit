@@ -77,7 +77,7 @@ extension ApiResource {
         var components = URLComponents()
         components.scheme = "https"
         components.host = RadioBrowser.apiServer.host
-        components.path = "/\(RadioBrowser.apiResponseFormat.stringValue)/\(endpoint.stringValue)"
+        components.path = "/\(RadioBrowser.apiResponseFormat.rawValue)/\(endpoint.rawValue)"
         components.queryItems = []
 
         if let path = path {

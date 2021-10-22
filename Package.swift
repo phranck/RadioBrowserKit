@@ -14,12 +14,13 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/sharplet/Regex.git", from: "2.1.0"),
+        .package(url: "https://github.com/ArtSabintsev/Zephyr.git", from: "3.0.0"),
         .package(name: "SwiftyBeaver", url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "1.9.0"),
     ],
     targets: [
         .target(
             name: "RadioBrowserKit",
-            dependencies: ["Regex", "SwiftyBeaver"],
+            dependencies: ["Regex", "SwiftyBeaver", "Zephyr"],
             path: "Sources"
         ),
         .testTarget(

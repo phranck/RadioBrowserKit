@@ -43,8 +43,4 @@ public enum ApiResponseOrder: String {
     case clickTrend = "clicktrend"
     case changeTimestamp = "changetimestamp"
     case random
-
-    var stringValue: String {
-        rawValue
-    }
 }

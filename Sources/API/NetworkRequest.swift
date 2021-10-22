@@ -39,36 +39,35 @@ extension NetworkRequest {
         request.cachePolicy = .returnCacheDataElseLoad
         request.addValue(RadioBrowser.httpUserAgent, forHTTPHeaderField: "User-Agent")
 
-//        print(request)
-
         DispatchQueue.global().async {
             let task = URLSession.shared.dataTask(with: request) { data, response, error -> Void in
                 if let error = error {
-                    DispatchQueue.main.async {
-                        completion(.failure(RadioBrowserError.undefined(error: error)))
-                    }
+                    completion(.failure(RadioBrowserError.urlSessionDataTask(error: error)))
+                    return
+                }
+
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                     return
                 }
 
                 guard let data = data else {
-                    DispatchQueue.main.async {
-                        completion(.failure(RadioBrowserError.invalidResponseData))
-                    }
+                    completion(.failure(RadioBrowserError.invalidResponseData))
                     return
                 }
 
-                self.decode(data, withCompletion: { result in
-                    switch result {
-                        case .success(let result):
-                            DispatchQueue.main.async {
-                                completion(.success(result))
+                switch statusCode {
+                    case 200:
+                        self.decode(data, withCompletion: { result in
+                            switch result {
+                                case .success(let result):
+                                    completion(.success(result))
+                                case .failure(let error):
+                                    completion(.failure(RadioBrowserError.jsonDecoding(error: error)))
                             }
-                        case .failure(let error):
-                            DispatchQueue.main.async {
-                                completion(.failure(RadioBrowserError.jsonDecodingError(error: error)))
-                            }
-                    }
-                })
+                        })
+                    default:
+                        completion(.failure(RadioBrowserError.unhandledStatusCode(statusCode: statusCode)))
+                }
             }
             task.resume()
         }

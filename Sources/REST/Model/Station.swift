@@ -25,7 +25,7 @@
 import Foundation
 import Regex
 
-public class Station: Decodable, Identifiable {
+public struct Station: Decodable, Identifiable {
     public var id: String { stationUUID }
     public var changeUUID: String
     public var stationUUID: String
@@ -114,7 +114,7 @@ public class Station: Decodable, Identifiable {
     public var sslError: Bool
     public var latitude: Double?
     public var longitude: Double?
-//    public var hasExtendedInfo: Bool
+    public var hasExtendedInfo: Bool?
 
     private enum CodingKeys: String, CodingKey {
         case changeUUID                 = "changeuuid"
@@ -150,10 +150,10 @@ public class Station: Decodable, Identifiable {
         case sslError                   = "ssl_error"
         case latitude                   = "geo_lat"
         case longitude                  = "geo_long"
-//        case hasExtendedInfo            = "has_extended_info"
+        case hasExtendedInfo            = "has_extended_info"
     }
 
-    required public init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         // Unfortunately, the open architecture Radio Browser suffers from heavy littering!
@@ -202,9 +202,7 @@ public class Station: Decodable, Identifiable {
 
         latitude = try container.decodeIfPresent(Double.self, forKey: .latitude)
         longitude = try container.decodeIfPresent(Double.self, forKey: .longitude)
-
-//        let hasExtendedInfoDecoded = try container.decode(Int.self, forKey: .hasExtendedInfo)
-//        hasExtendedInfo = hasExtendedInfoDecoded.boolValue
+        hasExtendedInfo = try container.decodeIfPresent(Bool.self, forKey: .hasExtendedInfo)
     }
 }
 
@@ -228,18 +226,18 @@ extension Station: Encodable {
         try container.encode(lastChangeTime_ISO8601, forKey: .lastChangeTime_ISO8601)
         try container.encode(codec, forKey: .codec)
         try container.encode(bitrate, forKey: .bitrate)
-        try container.encode(hls, forKey: .hls)
-        try container.encode(lastCheckOk, forKey: .lastCheckOk)
+        try container.encode(hls.intValue, forKey: .hls)
+        try container.encode(lastCheckOk.intValue, forKey: .lastCheckOk)
         try container.encode(lastCheckTime_ISO8601, forKey: .lastCheckTime_ISO8601)
         try container.encode(lastCheckOkTime_ISO8601, forKey: .lastCheckOkTime_ISO8601)
         try container.encode(lastLocalCheckTime_ISO8601, forKey: .lastLocalCheckTime_ISO8601)
         try container.encodeIfPresent(lastClickTime_ISO8601, forKey: .lastClickTime_ISO8601)
         try container.encode(clickCount, forKey: .clickCount)
         try container.encode(clickTrend, forKey: .clickTrend)
-        try container.encode(sslError, forKey: .sslError)
+        try container.encode(sslError.intValue, forKey: .sslError)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
-//        try container.encode(hasExtendedInfo, forKey: .hasExtendedInfo)
+        try container.encodeIfPresent(hasExtendedInfo, forKey: .hasExtendedInfo)
     }
 }
 
@@ -255,3 +253,10 @@ extension Station: Hashable {
     }
 }
 
+extension Int {
+    var boolValue: Bool { return self != 0 }
+}
+
+extension Bool {
+    var intValue: Int { return self ? 1 : 0 }
+}

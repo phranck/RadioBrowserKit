@@ -45,7 +45,9 @@ public class ApiViewModel: ObservableObject, ApiFetchable {
                 case .failure(let error):
                     print(error)
                     completion(nil)
-                    self?.api.error = error
+                    DispatchQueue.main.async {
+                        self?.api.error = error
+                    }
                     break
             }
         }

@@ -26,16 +26,9 @@ import Foundation
 
 extension RadioBrowser {
 
-    // MARK: - Public API
-
-    public static let version = "0.1.2"
-    public static let build = 1
-
     public static var httpUserAgent: String = "\(RadioBrowser.self)/\(RadioBrowser.version)"
     public static var apiResponseFormat: ApiResponseFormat = .json
     public static var cloudPrefix: String = "cloud"
-
-    // MARK: - Station information and manipulation
 
     public func stations(by name: String?, countryCode: String?, order: ApiResponseOrder?, orderRevers: Bool?, offset: Int?, limit: Int?) {
         let model = StationViewModel(api: self)

@@ -29,8 +29,10 @@ public enum RadioBrowserError: Error {
     case none
     /// Uncategorized error, so we passthrough it.
     case undefined(error: Error)
+    case urlSessionDataTask(error: Error)
+    case unhandledStatusCode(statusCode: Int)
     /// Thrown when `data` response on `URLSession.dataTask(..)` isn't readable
     case invalidResponseData
-    case jsonDecodingError(error: Error)
+    case jsonDecoding(error: Error)
     case malformedURLString(String)
 }

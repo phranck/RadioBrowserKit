@@ -23,58 +23,51 @@
  */
 
 import Foundation
+import Zephyr
 
 extension RadioBrowser {
 
+    enum CloudSyncKey: String {
+        case favorites
+    }
+
     internal func setupCloudSync() {
-        let store = NSUbiquitousKeyValueStore.default
-        NotificationCenter.default.addObserver(self, selector: #selector(cloudSync(notification:)), name: NSUbiquitousKeyValueStore.didChangeExternallyNotification, object: store)
-        log.debug("[CloudSync] sync started")
+        Zephyr.addKeysToBeMonitored(keys: [
+            RadioBrowser.CloudSyncKey.favorites.rawValue
+        ])
+        NotificationCenter.default.addObserver(self, selector: #selector(startCloudSync), name: Zephyr.keysDidChangeOnCloudNotification, object: nil)
+        log.debug("sync started")
     }
 
     internal func stopCloudSync() {
-        NotificationCenter.default.removeObserver(self)
-        log.debug("[CloudSync] sync stopped")
-    }
-
-    @objc func cloudSync(notification: Notification) {
-        log.debug("[CloudSync] notification received")
-        guard let userInfo = notification.userInfo,
-              let store = notification.object as? NSUbiquitousKeyValueStore,
-              let changeReason = userInfo[NSUbiquitousKeyValueStoreChangeReasonKey] as? Int else {
-            return
-        }
-
-        if changeReason == NSUbiquitousKeyValueStoreInitialSyncChange
-            || changeReason == NSUbiquitousKeyValueStoreServerChange {
-
-            guard let changedKeys = userInfo[NSUbiquitousKeyValueStoreChangedKeysKey] as? [String] else {
-                return
-            }
-            let defaults = UserDefaults.standard
-            for key in changedKeys {
-                let value = store.object(forKey: key)
-                defaults.set(value, forKey: key)
-            }
-        }
+        Zephyr.removeKeysFromBeingMonitored(keys: [
+            RadioBrowser.CloudSyncKey.favorites.rawValue
+        ])
+        log.debug("sync stopped")
     }
 
     public func addToFavorites(station: Station) {
         DispatchQueue.main.async {
-            let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: station, requiringSecureCoding: false)
-            NSUbiquitousKeyValueStore.default.set(encodedData, forKey: station.stationUUID)
-            NSUbiquitousKeyValueStore.default.synchronize()
-            self.favorites.insert(station)
-            log.debug("[\(station.name)] appended to favorites")
+            self.favorites.append(station)
+            UserDefaults.standard.setValue(self.favorites.data, forKey: RadioBrowser.CloudSyncKey.favorites.rawValue)
         }
     }
 
     public func removeFromFavorites(station: Station) {
         DispatchQueue.main.async {
-            NSUbiquitousKeyValueStore.default.removeObject(forKey: station.stationUUID)
-            NSUbiquitousKeyValueStore.default.synchronize()
-            self.favorites.remove(station)
-            log.debug("[\(station.name)] removed from favorites")
+            if let idx = self.favorites.firstIndex(of: station) {
+                self.favorites.remove(at: idx)
+                UserDefaults.standard.setValue(self.favorites.data, forKey: RadioBrowser.CloudSyncKey.favorites.rawValue)
+            }
+        }
+    }
+
+    @objc internal func startCloudSync() {
+        if let favoritesData = UserDefaults.standard.value(forKey: RadioBrowser.CloudSyncKey.favorites.rawValue) as? Data,
+           let cloudFavorites = Array<Station>(data: favoritesData) {
+            DispatchQueue.main.async {
+                self.favorites = cloudFavorites
+            }
         }
     }
 

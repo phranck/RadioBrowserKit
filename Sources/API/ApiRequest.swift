@@ -45,7 +45,7 @@ extension ApiRequest: NetworkRequest {
             let stations = try decoder.decode(Resource.ModelType.self, from: data)
             completion(.success(stations))
         } catch let error {
-            completion(.failure(RadioBrowserError.jsonDecodingError(error: error)))
+            completion(.failure(RadioBrowserError.jsonDecoding(error: error)))
         }
     }
 }

@@ -48,8 +48,4 @@ internal enum ApiEndpoints: String {
     case stats
     case tags
     case vote
-
-    var stringValue: String {
-        rawValue
-    }
 }

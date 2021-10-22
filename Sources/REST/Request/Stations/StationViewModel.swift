@@ -49,15 +49,15 @@ internal class StationViewModel: ApiViewModel {
 
         api.isLoading = true
         performRequest(with: resource) { result in
-            if let result = result {
-                self.api.stations = []
-                for station in result {
-                    DispatchQueue.main.async {
-                        self.api.stations.insert(station)
+            DispatchQueue.main.async {
+                if let result = result {
+                    self.api.stations = []
+                    for station in result {
+                        self.api.stations.append(station)
                     }
                 }
+                self.api.isLoading = false
             }
-            self.api.isLoading = false
         }
     }
 
