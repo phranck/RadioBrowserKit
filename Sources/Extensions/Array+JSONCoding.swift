@@ -46,3 +46,12 @@ extension Array where Element: Codable {
     }
 
 }
+
+extension Encodable {
+    public var jsonString: String? {
+        guard let data = try? JSONEncoder().encode(self) else {
+            fatalError("Could not JSONEncode element: \(self)")
+        }
+        return String(data: data, encoding: .utf8)
+    }
+}

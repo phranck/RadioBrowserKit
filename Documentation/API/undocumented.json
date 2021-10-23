@@ -1,0 +1,635 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiFetch.swift",
+      "line": 31,
+      "symbol": "ApiFetch",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiFetch.swift",
+      "line": 32,
+      "symbol": "ApiFetch.api",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiFetch.swift",
+      "line": 34,
+      "symbol": "ApiFetch.init(api:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseFormat.swift",
+      "line": 27,
+      "symbol": "ApiResponseFormat",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseFormat.swift",
+      "line": 28,
+      "symbol": "ApiResponseFormat.csv",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseFormat.swift",
+      "line": 28,
+      "symbol": "ApiResponseFormat.json",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseFormat.swift",
+      "line": 28,
+      "symbol": "ApiResponseFormat.m3u",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseFormat.swift",
+      "line": 28,
+      "symbol": "ApiResponseFormat.pls",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseFormat.swift",
+      "line": 28,
+      "symbol": "ApiResponseFormat.xml",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 27,
+      "symbol": "ApiResponseOrder",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 28,
+      "symbol": "ApiResponseOrder.name",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 29,
+      "symbol": "ApiResponseOrder.url",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 30,
+      "symbol": "ApiResponseOrder.homepage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 31,
+      "symbol": "ApiResponseOrder.favicon",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 32,
+      "symbol": "ApiResponseOrder.tags",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 33,
+      "symbol": "ApiResponseOrder.country",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 34,
+      "symbol": "ApiResponseOrder.state",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 35,
+      "symbol": "ApiResponseOrder.language",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 36,
+      "symbol": "ApiResponseOrder.votes",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 37,
+      "symbol": "ApiResponseOrder.codec",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 38,
+      "symbol": "ApiResponseOrder.bitrate",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 39,
+      "symbol": "ApiResponseOrder.lastCheckok",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 40,
+      "symbol": "ApiResponseOrder.lastCheckTime",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 41,
+      "symbol": "ApiResponseOrder.clickTimestamp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 42,
+      "symbol": "ApiResponseOrder.clickCount",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 43,
+      "symbol": "ApiResponseOrder.clickTrend",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 44,
+      "symbol": "ApiResponseOrder.changeTimestamp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/API/ApiResponseOrder.swift",
+      "line": 45,
+      "symbol": "ApiResponseOrder.random",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/ErrorHandling/RadioBrowserError.swift",
+      "line": 27,
+      "symbol": "RadioBrowserError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/ErrorHandling/RadioBrowserError.swift",
+      "line": 32,
+      "symbol": "RadioBrowserError.urlSessionDataTask(error:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/ErrorHandling/RadioBrowserError.swift",
+      "line": 33,
+      "symbol": "RadioBrowserError.unhandledStatusCode(statusCode:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/ErrorHandling/RadioBrowserError.swift",
+      "line": 36,
+      "symbol": "RadioBrowserError.jsonDecoding(error:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/ErrorHandling/RadioBrowserError.swift",
+      "line": 37,
+      "symbol": "RadioBrowserError.malformedURLString(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/ErrorHandling/RadioBrowserError.swift",
+      "line": 38,
+      "symbol": "RadioBrowserError.http503ServiceUnavailable(error:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/Extensions/Array+JSONCoding.swift",
+      "line": 29,
+      "symbol": "Array.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/Extensions/Array+JSONCoding.swift",
+      "line": 41,
+      "symbol": "Array.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/Extensions/Array+JSONCoding.swift",
+      "line": 51,
+      "symbol": "Encodable.jsonString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/Extensions/Locale+Regions.swift",
+      "line": 29,
+      "symbol": "Locale.LocaleRegion",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/Extensions/Locale+Regions.swift",
+      "line": 34,
+      "symbol": "Locale.regions",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/ClickCount.swift",
+      "line": 27,
+      "symbol": "ClickCount",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/ClickCount.swift",
+      "line": 28,
+      "symbol": "ClickCount.ok",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/ClickCount.swift",
+      "line": 29,
+      "symbol": "ClickCount.message",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/ClickCount.swift",
+      "line": 30,
+      "symbol": "ClickCount.stationUUID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/ClickCount.swift",
+      "line": 31,
+      "symbol": "ClickCount.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/ClickCount.swift",
+      "line": 33,
+      "symbol": "ClickCount.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 64,
+      "symbol": "Config.checkEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 65,
+      "symbol": "Config.prometheusExporterEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 66,
+      "symbol": "Config.pullServers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 67,
+      "symbol": "Config.tcpTimeoutSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 68,
+      "symbol": "Config.brokenStationsNeverWorkingTimeoutSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 69,
+      "symbol": "Config.brokenStationsTimeoutSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 70,
+      "symbol": "Config.checksTimeoutSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 71,
+      "symbol": "Config.clickSalidTimeoutSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 72,
+      "symbol": "Config.clicksTimeoutSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 73,
+      "symbol": "Config.mirrorPullIntervalSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 74,
+      "symbol": "Config.updateCachesIntervalSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 75,
+      "symbol": "Config.serverName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 76,
+      "symbol": "Config.serverLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 77,
+      "symbol": "Config.serverCountryCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 78,
+      "symbol": "Config.checkRetries",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 79,
+      "symbol": "Config.checkBatchsize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 80,
+      "symbol": "Config.checkPauseSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 81,
+      "symbol": "Config.apiThreads",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 82,
+      "symbol": "Config.cacheType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Config.swift",
+      "line": 83,
+      "symbol": "Config.cacheTtl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Server.swift",
+      "line": 27,
+      "symbol": "Server",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Server.swift",
+      "line": 28,
+      "symbol": "Server.ip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Server.swift",
+      "line": 29,
+      "symbol": "Server.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 27,
+      "symbol": "Stats",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 28,
+      "symbol": "Stats.supportedVersion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 29,
+      "symbol": "Stats.softwareVersion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 30,
+      "symbol": "Stats.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 31,
+      "symbol": "Stats.stations",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 32,
+      "symbol": "Stats.stationsBroken",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 33,
+      "symbol": "Stats.tags",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 34,
+      "symbol": "Stats.clicksLastHour",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 35,
+      "symbol": "Stats.clicksLastDay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 36,
+      "symbol": "Stats.languages",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/REST/Model/Stats.swift",
+      "line": 37,
+      "symbol": "Stats.countries",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser+CloudSync.swift",
+      "line": 34,
+      "symbol": "RadioBrowser.addToFavorites(station:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser+CloudSync.swift",
+      "line": 41,
+      "symbol": "RadioBrowser.removeFromFavorites(station:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 27,
+      "symbol": "RadioBrowser",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 28,
+      "symbol": "RadioBrowser",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 31,
+      "symbol": "RadioBrowser",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 38,
+      "symbol": "RadioBrowser.httpUserAgent",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 39,
+      "symbol": "RadioBrowser.apiResponseFormat",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 41,
+      "symbol": "RadioBrowser.stations",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 42,
+      "symbol": "RadioBrowser.favorites",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 43,
+      "symbol": "RadioBrowser.isLoading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit/Sources/RadioBrowser.swift",
+      "line": 45,
+      "symbol": "RadioBrowser.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/phranck/Developer/Projects/Private/Swift Packages/RadioBrowserKit"
+}

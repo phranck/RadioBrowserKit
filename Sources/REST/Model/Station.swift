@@ -22,43 +22,107 @@
  THE SOFTWARE.
  */
 
+import CoreLocation
 import Foundation
 import Regex
 
+/**
+ Object which represents a radio station of the Radio Browser API.
+
+ ```json
+ [
+     {
+         "changeuuid": "17142cad-4faf-11e9-a4d7-52543be04c81",
+         "stationuuid": "17142ca0-4faf-11e9-a4d7-52543be04c81",
+         "serveruuid": "cab9cde6-4922-475a-bdb4-ff681d25b2c6",
+         "name": "CITY23",
+         "url": "http://live.radiomax.technology/city23",
+         "url_resolved": "http://live.radiomax.technology/city23",
+         "homepage": "http://city23.at/",
+         "favicon": "http://city23.at/img/Logo_BCL.png",
+         "tags": "dab+,easy listening",
+         "country": "Austria",
+         "countrycode": "AT",
+         "iso_3166_2": null,
+         "state": "Vienna",
+         "language": "german",
+         "languagecodes": "de",
+         "votes": 25,
+         "lastchangetime": "2021-08-06 08:36:44",
+         "lastchangetime_iso8601": "2021-08-06T08:36:44Z",
+         "codec": "MP3",
+         "bitrate": 192,
+         "hls": 0,
+         "lastcheckok": 1,
+         "lastchecktime": "2021-10-22 22:09:29",
+         "lastchecktime_iso8601": "2021-10-22T22:09:29Z",
+         "lastcheckoktime": "2021-10-22 22:09:29",
+         "lastcheckoktime_iso8601": "2021-10-22T22:09:29Z",
+         "lastlocalchecktime": "2021-10-22 22:09:29",
+         "lastlocalchecktime_iso8601": "2021-10-22T22:09:29Z",
+         "clicktimestamp": "2021-10-23 09:23:27",
+         "clicktimestamp_iso8601": "2021-10-23T09:23:27Z",
+         "clickcount": 4,
+         "clicktrend": 3,
+         "ssl_error": 0,
+         "geo_lat": null,
+         "geo_long": null,
+         "has_extended_info": false
+     }
+ ]
+ ```
+ */
 public struct Station: Decodable, Identifiable {
+    /// A globally unique identifier for the station. Same as `stationUUID`. (read only)
     public var id: String { stationUUID }
+
+    /// A globally unique identifier for the change of the station information.
     public var changeUUID: String
+    /// A globally unique identifier for the station.
     public var stationUUID: String
+    /// The name of the station
     public var name: String
 
     private var streamUrlString: String
+    /// The stream URL provided by the user.
     public var streamUrl: URL {
         URL(string: streamUrlString)!
     }
 
     private var streamUrlStringResolved: String
+    /// An automatically "resolved" stream URL. Things resolved are playlists (M3U/PLS/ASX...), HTTP redirects (Code 301/302). This link is especially usefull if you use this API from a platform that is not able to do a resolve on its own (e.g. JavaScript in browser) or you just don't want to invest the time in decoding playlists yourself.
     public var streamUrlResolved: URL {
         URL(string: streamUrlStringResolved)!
     }
 
-    public var websiteUrlString: String = ""
+    private var websiteUrlString: String = ""
+    /// URL to the homepage of the stream, so you can direct the user to a page with more information about the stream.
     public var websiteUrl: URL? {
         URL(string: websiteUrlString)
     }
 
     private var coverUrlString: String
+    /// URL to an icon or picture that represents the stream. (PNG, JPG).
     public var coverUrl: URL? {
         return URL(string: coverUrlString)
     }
 
+    /// Tags of the stream with more information about it.
     public var tags: String
+    /// Two letter, uppercase country code as described in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
     public var countryCode: String
+    /// Full name of the entity where the station is located inside the country.
     public var state: String
+    /// Languages that are spoken in this stream.<br>
+    /// This is a multivalue parameter. If there are more than one language, it's a comma separated list.
     public var language: String
+    /// Languages that are spoken in this stream by code [ISO 639-2/B](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
     public var languageCodes: String
+    /// Number of votes for this station. This number is by server and only ever increases. It will never be reset to 0.
     public var votes: Int
 
     private var lastChangeTime_ISO8601: String
+    /// Last time when the stream information was changed in the database.
     public var lastChangeTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         if let date = dateFormatter.date(from: lastChangeTime_ISO8601) {
@@ -67,12 +131,17 @@ public struct Station: Decodable, Identifiable {
         return Date()
     }
 
+    /// The codec of this stream recorded at the last check.
     public var codec: String
+    /// The bitrate of this stream recorded at the last check.
     public var bitrate: Int
+    /// Boolean value which describes whether the station supports [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) or or not.
     public var hls: Bool
+    /// This value is calculated using several measurement points, as the backend servers of Radio Browser are located in different countries. The calculated value is a majority vote.
     public var lastCheckOk: Bool
 
     private var lastCheckTime_ISO8601: String
+    /// The last time when any Radio Browser server checked the online state of this stream.
     public var lastCheckTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         if let date = dateFormatter.date(from: lastCheckTime_ISO8601) {
@@ -82,6 +151,7 @@ public struct Station: Decodable, Identifiable {
     }
 
     private var lastCheckOkTime_ISO8601: String?
+    /// The last time when the stream was checked for the online status with a positive result.
     public var lastCheckOkTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         if let lastCheckTimeOk = lastCheckOkTime_ISO8601,
@@ -92,6 +162,7 @@ public struct Station: Decodable, Identifiable {
     }
 
     private var lastLocalCheckTime_ISO8601: String
+    /// The last time when this server checked the online state and the metadata of this stream.
     public var lastLocalCheckTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         if let date = dateFormatter.date(from: lastLocalCheckTime_ISO8601) {
@@ -101,6 +172,7 @@ public struct Station: Decodable, Identifiable {
     }
 
     private var lastClickTime_ISO8601: String?
+    /// The time when the last click has been recorded for this stream.
     public var lastClickTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         if let str = lastClickTime_ISO8601,
@@ -110,11 +182,23 @@ public struct Station: Decodable, Identifiable {
         return Date()
     }
 
+    /// Clicks within the last 24 hours. To increase this value, the developer sould call `RadioBrowser updateClickCount(for:completion)` every time a stream starts playing.
     public var clickCount: Int
+    /// The difference of the clickcounts within the last 2 days. Posivite values mean an increase, negative a decrease of clicks.
     public var clickTrend: Int
+    /// Boolean value which describes the connection result to stream over HTTPS. `true` means there were an error, `false` means no error.
     public var sslError: Bool
-    public var latitude: Double?
-    public var longitude: Double?
+    private var latitude: Double?
+    private var longitude: Double?
+    /// Geo location on earth of the stream.
+    public var geoLocation: CLLocation? {
+        guard let latitude = latitude,
+              let longitude = longitude else {
+                  return nil
+              }
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    /// Boolean value which describes whether the stream owner does provide extended information as HTTP headers (which override the information in the database) or not.
     public var hasExtendedInfo: Bool?
 
     private enum CodingKeys: String, CodingKey {
@@ -255,10 +339,10 @@ extension Station: Hashable {
     }
 }
 
-extension Int {
+fileprivate extension Int {
     var boolValue: Bool { return self != 0 }
 }
 
-extension Bool {
+fileprivate extension Bool {
     var intValue: Int { return self ? 1 : 0 }
 }

@@ -2,21 +2,30 @@
   "object": {
     "pins": [
       {
-        "package": "CloudUserDefaults",
-        "repositoryURL": "https://github.com/nbasham/CloudUserDefaults.git",
-        "state": {
-          "branch": null,
-          "revision": "2f6695211e5c2b596c1fd886eefffeeb34c64d16",
-          "version": "1.0.3"
-        }
-      },
-      {
         "package": "Regex",
         "repositoryURL": "https://github.com/sharplet/Regex.git",
         "state": {
           "branch": null,
           "revision": "76c2b73d4281d77fc3118391877efd1bf972f515",
           "version": "2.1.1"
+        }
+      },
+      {
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "2c039501d6eeb4d4cd4aec4a8d884ad28862e044",
+          "version": "1.9.5"
+        }
+      },
+      {
+        "package": "Zephyr",
+        "repositoryURL": "https://github.com/ArtSabintsev/Zephyr.git",
+        "state": {
+          "branch": null,
+          "revision": "681a4c68966a20fde9ec27f2e8c7274c107ec535",
+          "version": "3.6.1"
         }
       }
     ]

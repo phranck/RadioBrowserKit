@@ -17,7 +17,7 @@
  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,1
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
@@ -40,7 +40,6 @@ public class RadioBrowser: ObservableObject {
 
     @Published public internal(set) var stations: [Station] = []
     @Published public internal(set) var favorites: [Station] = []
-    @Published public internal(set) var error: RadioBrowserError = .none
     @Published public internal(set) var isLoading: Bool = false
 
     public init() {
@@ -48,7 +47,7 @@ public class RadioBrowser: ObservableObject {
         startCloudSync()
 
         /// Prefetch all stations by current region code
-        searchStations(withName: nil, countryCode: Locale.current.regionCode, order: .clickCount, orderRevers: true, offset: 0, limit: 25)
+        stations(byCountryCode: Locale.current.regionCode!, order: .clickCount, reverse: true, limit: 50)
     }
 
     deinit {

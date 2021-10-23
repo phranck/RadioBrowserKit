@@ -31,44 +31,37 @@ internal protocol NetworkResource {
 
 internal protocol ApiResource: NetworkResource {
     var endpoint: ApiEndpoints { get }
-
     var path: String? { get }
-    var bitrateMax: Int? { get }
-    var bitrateMin: Int? { get }
-    var codec: String? { get }
+    var seconds: Int? { get }
+
+    var name: String? { get }
+    var nameExact: Bool? { get }
     var country: String? { get }
     var countryExact: Bool? { get }
     var countryCode: String? { get }
-    var hasExtendedInfo: Bool? { get }
-    var hasGeoInfo: Bool? { get }
-    var hideBroken: Bool? { get }
-    var language: String? { get }
-    var languageExact: Bool? { get }
-    var limit: Int? { get }
-    var name: String? { get }
-    var nameExact: Bool? { get }
-    var offset: Int? { get }
-    var order: ApiResponseOrder? { get }
-    var reverse: Bool? { get }
-    var searchterm: String? { get }
-    var seconds: Int? { get }
     var state: String? { get }
     var stateExact: Bool? { get }
+    var language: String? { get }
+    var languageExact: Bool? { get }
     var tag: String? { get }
     var tagExact: Bool? { get }
     var tagList: String? { get }
+    var codec: String? { get }
+    var bitrateMin: Int? { get }
+    var bitrateMax: Int? { get }
+    var hasGeoInfo: Bool? { get }
+    var hasExtendedInfo: Bool? { get }
+    var order: ApiResponseOrder? { get }
+    var reverse: Bool? { get }
+    var offset: Int? { get }
+    var limit: Int? { get }
+    var hideBroken: Bool? { get }
 }
 
 // MARK: - Default Values
 
 extension ApiResource {
     var endpoint: ApiEndpoints { .stations }
-
-    var countryExact: Bool? { false }
-    var languageExact: Bool? { false }
-    var nameExact: Bool? { false }
-    var stateExact: Bool? { false }
-    var tagExact: Bool? { false }
     var hideBroken: Bool? { true }
 }
 
@@ -84,13 +77,13 @@ extension ApiResource {
             components.path.append("/\(path)")
         }
 
-        if let searchterm = searchterm {
-            components.queryItems?.append(URLQueryItem(name: "name", value: searchterm))
+        if let name = name {
+            components.queryItems?.append(URLQueryItem(name: "name", value: name))
         }
 
         if let nameExact = nameExact,
-           let searchterm = searchterm {
-            if !searchterm.isEmpty {
+           let name = name {
+            if !name.isEmpty {
                 components.queryItems?.append(URLQueryItem(name: "nameExact", value: nameExact.description))
             }
         }

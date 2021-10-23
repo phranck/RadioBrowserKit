@@ -35,7 +35,7 @@ extension NetworkRequest {
     internal func load(_ url: URL, withCompletion completion: @escaping (Result<ModelType?, RadioBrowserError>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.timeoutInterval = 10
+        request.timeoutInterval = 5
         request.cachePolicy = .returnCacheDataElseLoad
         request.addValue(RadioBrowser.httpUserAgent, forHTTPHeaderField: "User-Agent")
 

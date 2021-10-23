@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RadioBrowserKit  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="RadioBrowserKit  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          RadioBrowserKit Docs
+        </a>
+         (36% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/phranck/RadioBrowserKit">
+            <img class="header-icon" src="img/gh.png" alt="GitHub"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Fde1.api.radio-browser.info%2Fjson%2Fdocsets%2FRadioBrowserKit.xml">
+            <img class="header-icon" src="img/dash.png" alt="Dash"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">RadioBrowserKit Reference</a>
+      <img class="carat" src="img/carat.png" alt=""/>
+      RadioBrowserKit  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ApiFetch.html">ApiFetch</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ClickCount.html">ClickCount</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/Config.html">Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/RadioBrowser.html">RadioBrowser</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/Server.html">Server</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/Stats.html">Stats</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ApiResponseFormat.html">ApiResponseFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ApiResponseOrder.html">ApiResponseOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/RadioBrowserError.html">RadioBrowserError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Encodable.html">Encodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Locale.html">Locale</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Locale.html#/s:10Foundation6LocaleV15RadioBrowserKitE0B6RegionV">– LocaleRegion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Station.html">Station</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <p><a href="https://github.com/phranck/RadioBrowserKit/actions/workflows/RadioBrowserKit.yml"><img src="https://github.com/phranck/RadioBrowserKit/actions/workflows/RadioBrowserKit.yml/badge.svg" alt="RadioBrowserKit CI"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a>
+<a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg" alt="SwiftPM Compatible"></a>
+<img src="https://img.shields.io/github/tag/phranck/RadioBrowserKit.svg?color=blue&label=Tag" alt="Tag"></p>
+<h1 id='radiobrowserkit-the-swift-sdk-for-radio-browser' class='heading'>RadioBrowserKit - The Swift SDK for Radio Browser</h1>
+
+<p>Radio Streams from all over the world. Free and Open.<br>
+RadioBrowserKit is a Swift package which lets you use the free and Open Source <a href="https://de1.api.radio-browser.info">Radio Browser API</a>.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p><code>RadioBrowserKit.git</code> works with Swift 5.3 and above for iOS and macOS.</p>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+<pre class="highlight plaintext"><code>let package = Package(
+  name: "MyPackage",
+  dependencies: [
+    .package(url: "https://github.com/phranck/RadioBrowserKit.git", from: "0.1.0"),
+  ]
+)
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>Put this in your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "phranck/RadioBrowserKit" ~&gt; 0.1
+</code></pre>
+<h2 id='how-to-use-it' class='heading'>How to use it?</h2>
+
+<p>The first thing you have to do is create an instance of the  <code><a href="Classes/RadioBrowser.html">RadioBrowser</a></code> class. This can be done at the beginning of your app launch. For SwiftUI you can provide it as an environment object via view modifier.</p>
+<pre class="highlight plaintext"><code>@main
+struct MyApp: App {
+    @StateObject var radioBrowserApi = RadioBrowser()
+
+    var body: some Scene {
+        WindowGroup {
+            MainView()
+                .environmentObject(radioBrowserApi)
+        }
+    }
+}
+</code></pre>
+
+<p>Actually <code><a href="Classes/RadioBrowser.html">RadioBrowser</a></code> publishes four observed properties which you can use in your SwiftUI view automatic refreshing (a <code>RadioBrowserDelegate</code> to use it in a UIKit app will follow later):</p>
+<pre class="highlight plaintext"><code>@Published public internal(set) var stations: [Station] = []
+@Published public internal(set) var favorites: [Station] = []
+@Published public internal(set) var error: RadioBrowserError = .none
+@Published public internal(set) var isLoading: Bool = false
+</code></pre>
+<h2 id='developer-notes' class='heading'>Developer Notes</h2>
+
+<p><code>RadioBrowserKit</code> uses <a href="http://githubflow.github.io">GitFlow</a>. There are two branches, <code>main</code> and <code>develop</code>. The <code>develop</code> branch is the default branch. To provide (<em>changes</em>|<em>fixes</em>|<em>additions</em>) you just have to fork this repository and create your working branch with <code>develop</code> as base. If you’re done, just open a pull request.</p>
+<h2 id='contact' class='heading'>Contact</h2>
+
+<ul>
+<li>✉️ <a href="mailto:hello@woodbytes.me">Write me an email</a></li>
+<li>🐦 <a href="https://twitter.com/_Woodbytes_">Ping me on Twitter</a></li>
+<li>📝 <a href="https://woodbytes.me">Read my blog</a></li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p>This software is published under the <a href="http://cocoanaut.mit-license.org">MIT License</a>.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2021 <a class="link" href="https://woodbytes.me" target="_blank" rel="external noopener">Woodbytes</a>. All rights reserved. (Last updated: 2021-10-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>

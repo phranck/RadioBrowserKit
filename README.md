@@ -65,9 +65,9 @@ Actually `RadioBrowser` publishes four observed properties which you can use in 
 
 ## Contact
 
-* :envelope: [Write me an email](mailto:hello@woodbytes.me)
-* :bird: [Ping me on Twitter](https://twitter.com/_Woodbytes_)
-* :memo: [Read my blog](https://woodbytes.me)
+* ✉️ [Write me an email](mailto:hello@woodbytes.me)
+* 🐦 [Ping me on Twitter](https://twitter.com/_Woodbytes_)
+* 📝 [Read my blog](https://woodbytes.me)
 
 ## License
 This software is published under the [MIT License](http://cocoanaut.mit-license.org).

@@ -37,17 +37,14 @@ public class ApiFetch: ApiFetchable {
 
     internal func performRequest<Resource: NetworkResource>(with resource: Resource, withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
         let request = ApiRequest(resource: resource)
-        request.execute { [weak self] result in
+        request.execute { result in
             switch result {
                 case .success(let result):
                     completion(result)
 
                 case .failure(let error):
-                    print(error)
+                    log.error(error)
                     completion(nil)
-                    DispatchQueue.main.async {
-                        self?.api.error = error
-                    }
                     break
             }
         }

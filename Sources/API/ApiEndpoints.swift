@@ -38,6 +38,7 @@ internal enum ApiEndpoints: String {
     case states
     case stations
     case stationsByName = "stations/byname"
+    case stationsByCountryCode = "stations/bycountrycodeexact"
     case stationsBroken = "stations/broken"
     case stationsChanged = "stations/changed"
     case stationsLastChange = "stations/lastchange"
