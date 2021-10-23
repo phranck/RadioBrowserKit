@@ -55,7 +55,6 @@ Actually `RadioBrowser` publishes four observed properties which you can use in 
 ```Swift
 @Published public internal(set) var stations: [Station] = []
 @Published public internal(set) var favorites: [Station] = []
-@Published public internal(set) var error: RadioBrowserError = .none
 @Published public internal(set) var isLoading: Bool = false
 ```
 
@@ -65,9 +64,9 @@ Actually `RadioBrowser` publishes four observed properties which you can use in 
 
 ## Contact
 
-* ✉️ [Write me an email](mailto:hello@woodbytes.me)
+* 📧 [Write me an email](mailto:hello@woodbytes.me)
 * 🐦 [Ping me on Twitter](https://twitter.com/_Woodbytes_)
-* 📝 [Read my blog](https://woodbytes.me)
+* 📋 [Read my blog](https://woodbytes.me)
 
 ## License
 This software is published under the [MIT License](http://cocoanaut.mit-license.org).
