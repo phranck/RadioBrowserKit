@@ -163,7 +163,7 @@ extension RadioBrowser {
         - station: `Station` object whose click count should be increased.
         - completion: Optional completion callback, which returns a `ClickCount` object.
      */
-    public func updateClickCount(for station: Station, completion: ((ClickCount?) -> Void)? = nil) {
+    public func updateClickCount(for station: RadioStation, completion: ((ClickCount?) -> Void)? = nil) {
         let request = ClickCountRequest(api: self)
         request.updateClickCount(for: station.stationUUID, completion: completion)
     }

@@ -107,11 +107,9 @@ internal class StationRequest: ApiFetch {
         api.isLoading = true
         performRequest(with: resource) { result in
             DispatchQueue.main.async {
-                if let result = result {
-                    self.api.stations = []
-                    for station in result {
-                        self.api.stations.append(station)
-                    }
+                if let stations = result {
+                    self.api.stations = stations
+                    RadioBrowser.delegate?.radioBrowser(self.api, receivedStations: stations)
                 }
                 self.api.isLoading = false
             }

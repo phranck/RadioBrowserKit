@@ -10,7 +10,7 @@ DOC_DIR="Documentation/API/"
 ROOT_URL="http://de1.api.radio-browser.info/json/"
 
 # Create the output directory
-mkdir -p "${API_OUTPUT}"
+mkdir -p "${DOC_DIR}"
 
 # Build the documentation
 jazzy \

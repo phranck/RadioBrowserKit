@@ -33,6 +33,7 @@ public enum RadioBrowserError: Error {
     case unhandledStatusCode(statusCode: Int)
     /// Thrown when `data` response on `URLSession.dataTask(..)` isn't readable
     case invalidResponseData
+    case invalidHTTPURLResponse
     case jsonDecoding(error: Error)
     case malformedURLString(String)
     case http503ServiceUnavailable(error: Error?)

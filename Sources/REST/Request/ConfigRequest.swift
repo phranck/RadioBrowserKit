@@ -31,6 +31,10 @@ internal class ConfigRequest: ApiFetch {
 
         performRequest(with: resource) { config in
             completion(config)
+
+            if let config = config {
+                RadioBrowser.delegate?.radioBrowser(self.api, receivedConfig: config)
+            }
         }
     }
 

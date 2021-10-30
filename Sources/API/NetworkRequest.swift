@@ -41,19 +41,27 @@ extension NetworkRequest {
 
         log.debug(request)
 
+        RadioBrowser.delegate?.radioBrowser(willStartRequest: request)
+
         DispatchQueue.global().async {
             let task = URLSession.shared.dataTask(with: request) { data, response, error -> Void in
                 if let error = error {
                     completion(.failure(RadioBrowserError.urlSessionDataTask(error: error)))
+                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
                     return
                 }
 
                 guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                    let error = RadioBrowserError.invalidHTTPURLResponse
+                    completion(.failure(error))
+                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
                     return
                 }
 
                 guard let data = data else {
-                    completion(.failure(RadioBrowserError.invalidResponseData))
+                    let error = RadioBrowserError.invalidResponseData
+                    completion(.failure(error))
+                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
                     return
                 }
 
@@ -65,12 +73,19 @@ extension NetworkRequest {
                                     completion(.success(result))
                                 case .failure(let error):
                                     completion(.failure(RadioBrowserError.jsonDecoding(error: error)))
+                                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
                             }
                         })
+
                     case 503:
-                        completion(.failure(RadioBrowserError.http503ServiceUnavailable(error: error)))
+                        let error = RadioBrowserError.http503ServiceUnavailable(error: error)
+                        completion(.failure(error))
+                        RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+
                     default:
-                        completion(.failure(RadioBrowserError.unhandledStatusCode(statusCode: statusCode)))
+                        let error = RadioBrowserError.unhandledStatusCode(statusCode: statusCode)
+                        completion(.failure(error))
+                        RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
                 }
             }
             task.resume()

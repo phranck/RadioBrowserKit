@@ -33,6 +33,10 @@ internal class ClickCountRequest: ApiFetch {
         performRequest(with: resource) { result in
             if let completion = completion {
                 completion(result)
+
+                if let clickCount = result {
+                    RadioBrowser.delegate?.radioBrowser(self.api, didUpdateClickCount: clickCount)
+                }
             }
         }
     }

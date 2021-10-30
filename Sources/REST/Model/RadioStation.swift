@@ -72,7 +72,7 @@ import Regex
  ]
  ```
  */
-public struct Station: Decodable, Identifiable {
+public struct RadioStation: Decodable, Identifiable {
     /// A globally unique identifier for the station. Same as `stationUUID`. (read only)
     public var id: String { stationUUID }
 
@@ -292,7 +292,7 @@ public struct Station: Decodable, Identifiable {
     }
 }
 
-extension Station: Encodable {
+extension RadioStation: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
@@ -327,13 +327,13 @@ extension Station: Encodable {
     }
 }
 
-extension Station: Equatable {
-    public static func == (lhs: Station, rhs: Station) -> Bool {
+extension RadioStation: Equatable {
+    public static func == (lhs: RadioStation, rhs: RadioStation) -> Bool {
         return lhs.id == rhs.id
     }
 }
 
-extension Station: Hashable {
+extension RadioStation: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

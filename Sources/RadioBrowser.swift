@@ -38,19 +38,21 @@ public class RadioBrowser: ObservableObject {
     public static var httpUserAgent: String = "\(RadioBrowser.self)/\(RadioBrowser.version)"
     public static var apiResponseFormat: ApiResponseFormat = .json
 
-    @Published public internal(set) var stations: [Station] = []
-    @Published public internal(set) var favorites: [Station] = []
+    @Published public internal(set) var stations: [RadioStation] = []
     @Published public internal(set) var isLoading: Bool = false
 
-    public init() {
-        setupCloudSync()
-        startCloudSync()
+    static var delegate: RadioBrowserDelegate?
 
+    public init() {
         /// Prefetch all stations by current region code
         stations(byCountryCode: Locale.current.regionCode!, order: .clickCount, reverse: true, limit: 50)
     }
+}
 
-    deinit {
-        stopCloudSync()
-    }
+public protocol RadioBrowserDelegate {
+    func radioBrowser(willStartRequest: URLRequest)
+    func radioBrowser(endRequest: URLRequest, withError: Error)
+    func radioBrowser(_ radioBrowser: RadioBrowser, receivedStations: [RadioStation])
+    func radioBrowser(_ radioBrowser: RadioBrowser, receivedConfig: Config)
+    func radioBrowser(_ radioBrowser: RadioBrowser, didUpdateClickCount: ClickCount)
 }
