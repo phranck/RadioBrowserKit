@@ -22,37 +22,7 @@
  THE SOFTWARE.
  */
 
-import SwiftUI
-import SwiftyBeaver
-import Zephyr
+import Foundation
 
-let log = SwiftyBeaver.self
-
-public class RadioBrowser: ObservableObject {
-    internal static let version = "0.1.3"
-    internal static let build = 1
-    internal static let apiServer = RadioBrowserServer()
-
-    // MARK: - Public API
-
-    public static var httpUserAgent: String = "\(RadioBrowser.self)/\(RadioBrowser.version)"
-    public static var apiResponseFormat: ApiResponseFormat = .json
-
-    @Published public internal(set) var stations: [RadioStation] = []
-    @Published public internal(set) var isLoading: Bool = false
-
-    static var delegate: RadioBrowserDelegate?
-
-    public init() {
-        /// Prefetch all stations by current region code
-        stations(byCountryCode: Locale.current.regionCode!, order: .clickCount, reverse: true, limit: 50)
-    }
-}
-
-public protocol RadioBrowserDelegate {
-    func radioBrowser(willStartRequest: URLRequest)
-    func radioBrowser(endRequest: URLRequest, withError: Error)
-    func radioBrowser(_ radioBrowser: RadioBrowser, receivedStations: [RadioStation])
-    func radioBrowser(_ radioBrowser: RadioBrowser, receivedConfig: Config)
-    func radioBrowser(_ radioBrowser: RadioBrowser, didUpdateClickCount: ClickCount)
-}
+/// This is the global module enum which is only for namespacing the Deezer model stuff.
+public enum RadioBrowser {}

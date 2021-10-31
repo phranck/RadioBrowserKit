@@ -28,7 +28,7 @@ import XCTest
 final class RadioBrowserKitTests: XCTestCase {
 
     func testVersion() throws {
-        XCTAssertEqual(RadioBrowser.version, "0.1.3")
+        XCTAssertEqual(RadioBrowserAPI.version, "0.1.3")
     }
 
 }

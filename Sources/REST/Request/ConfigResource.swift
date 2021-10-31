@@ -25,7 +25,7 @@
 import Foundation
 
 struct ConfigResource: ApiResource {
-    typealias ModelType = Config
+    typealias ModelType = RadioBrowser.Config
 
     var endpoint: ApiEndpoints {
         .config

@@ -24,7 +24,7 @@
 
 import Foundation
 
-extension RadioBrowser {
+extension RadioBrowserAPI {
 
     /**
       This call represents the [Advanced Station Search](https://de1.api.radio-browser.info/#Advanced_station_search) of Radio Browser.
@@ -163,7 +163,7 @@ extension RadioBrowser {
         - station: `Station` object whose click count should be increased.
         - completion: Optional completion callback, which returns a `ClickCount` object.
      */
-    public func updateClickCount(for station: RadioStation, completion: ((ClickCount?) -> Void)? = nil) {
+    public func updateClickCount(for station: RadioBrowser.Station, completion: ((RadioBrowser.ClickCount?) -> Void)? = nil) {
         let request = ClickCountRequest(api: self)
         request.updateClickCount(for: station.stationUUID, completion: completion)
     }
@@ -174,7 +174,7 @@ extension RadioBrowser {
      - Parameters:
         - completion: Completion callback, which returns a `Config` object.
      */
-    public func backendConfig(completion: @escaping (Config?) -> Void) {
+    public func backendConfig(completion: @escaping (RadioBrowser.Config?) -> Void) {
         let request = ConfigRequest(api: self)
         request.backendConfig { config in
             completion(config)

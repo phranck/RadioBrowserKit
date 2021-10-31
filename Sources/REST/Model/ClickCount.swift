@@ -24,16 +24,20 @@
 
 import Foundation
 
-public class ClickCount: Codable {
-    public var ok: Bool
-    public var message: String
-    public var stationUUID: String
-    public var name: String
-    private var urlString: String
-    public var url: URL {
-        URL(string: urlString)!
+extension RadioBrowser {
+    public struct ClickCount {
+        public var ok: Bool
+        public var message: String
+        public var stationUUID: String
+        public var name: String
+        private var urlString: String
+        public var url: URL {
+            URL(string: urlString)!
+        }
     }
+}
 
+extension RadioBrowser.ClickCount: Decodable {
     private enum CodingKeys: String, CodingKey {
         case ok
         case message
@@ -42,7 +46,7 @@ public class ClickCount: Codable {
         case urlString = "url"
     }
 
-    required public init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         ok = try container.decode(Bool.self, forKey: .ok)

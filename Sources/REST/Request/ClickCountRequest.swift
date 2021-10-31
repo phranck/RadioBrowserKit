@@ -26,7 +26,7 @@ import Foundation
 
 internal class ClickCountRequest: ApiFetch {
 
-    internal func updateClickCount(for stationUUID: String, completion: ((ClickCount?) -> Void)? = nil) {
+    internal func updateClickCount(for stationUUID: String, completion: ((RadioBrowser.ClickCount?) -> Void)? = nil) {
         var resource = ClickCountResource()
         resource.path = stationUUID
 
@@ -35,7 +35,7 @@ internal class ClickCountRequest: ApiFetch {
                 completion(result)
 
                 if let clickCount = result {
-                    RadioBrowser.delegate?.radioBrowser(self.api, didUpdateClickCount: clickCount)
+                    RadioBrowserAPI.delegate?.radioBrowser(self.api, didUpdateClickCount: clickCount)
                 }
             }
         }

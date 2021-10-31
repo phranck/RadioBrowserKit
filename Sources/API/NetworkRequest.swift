@@ -37,31 +37,31 @@ extension NetworkRequest {
         request.httpMethod = "GET"
         request.timeoutInterval = 5
         request.cachePolicy = .returnCacheDataElseLoad
-        request.addValue(RadioBrowser.httpUserAgent, forHTTPHeaderField: "User-Agent")
+        request.addValue(RadioBrowserAPI.httpUserAgent, forHTTPHeaderField: "User-Agent")
 
         log.debug(request)
 
-        RadioBrowser.delegate?.radioBrowser(willStartRequest: request)
+        RadioBrowserAPI.delegate?.radioBrowser(willStartRequest: request)
 
         DispatchQueue.global().async {
             let task = URLSession.shared.dataTask(with: request) { data, response, error -> Void in
                 if let error = error {
                     completion(.failure(RadioBrowserError.urlSessionDataTask(error: error)))
-                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+                    RadioBrowserAPI.delegate?.radioBrowser(endRequest: request, withError: error)
                     return
                 }
 
                 guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                     let error = RadioBrowserError.invalidHTTPURLResponse
                     completion(.failure(error))
-                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+                    RadioBrowserAPI.delegate?.radioBrowser(endRequest: request, withError: error)
                     return
                 }
 
                 guard let data = data else {
                     let error = RadioBrowserError.invalidResponseData
                     completion(.failure(error))
-                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+                    RadioBrowserAPI.delegate?.radioBrowser(endRequest: request, withError: error)
                     return
                 }
 
@@ -73,19 +73,19 @@ extension NetworkRequest {
                                     completion(.success(result))
                                 case .failure(let error):
                                     completion(.failure(RadioBrowserError.jsonDecoding(error: error)))
-                                    RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+                                    RadioBrowserAPI.delegate?.radioBrowser(endRequest: request, withError: error)
                             }
                         })
 
                     case 503:
                         let error = RadioBrowserError.http503ServiceUnavailable(error: error)
                         completion(.failure(error))
-                        RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+                        RadioBrowserAPI.delegate?.radioBrowser(endRequest: request, withError: error)
 
                     default:
                         let error = RadioBrowserError.unhandledStatusCode(statusCode: statusCode)
                         completion(.failure(error))
-                        RadioBrowser.delegate?.radioBrowser(endRequest: request, withError: error)
+                        RadioBrowserAPI.delegate?.radioBrowser(endRequest: request, withError: error)
                 }
             }
             task.resume()

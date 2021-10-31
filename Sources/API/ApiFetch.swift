@@ -29,9 +29,9 @@ internal protocol ApiFetchable {
 }
 
 public class ApiFetch: ApiFetchable {
-    public let api: RadioBrowser
+    public let api: RadioBrowserAPI
 
-    public init(api: RadioBrowser) {
+    public init(api: RadioBrowserAPI) {
         self.api = api
     }
 

@@ -24,18 +24,23 @@
 
 import Foundation
 
-public class Stats: Codable {
-    public var supportedVersion: Int
-    public var softwareVersion: String
-    public var status: String
-    public var stations: Int
-    public var stationsBroken: Int
-    public var tags: Int
-    public var clicksLastHour: Int
-    public var clicksLastDay: Int
-    public var languages: Int
-    public var countries: Int
+extension RadioBrowser {
+    public struct Stats {
+        public var supportedVersion: Int
+        public var softwareVersion: String
+        public var status: String
+        public var stations: Int
+        public var stationsBroken: Int
+        public var tags: Int
+        public var clicksLastHour: Int
+        public var clicksLastDay: Int
+        public var languages: Int
+        public var countries: Int
 
+    }
+}
+
+extension RadioBrowser.Stats: Decodable {
     private enum CodingKeys: String, CodingKey {
         case supportedVersion = "supported_version"
         case softwareVersion  = "software_version"
@@ -49,7 +54,7 @@ public class Stats: Codable {
         case countries
     }
 
-    required public init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         supportedVersion = try container.decode(Int.self, forKey: .supportedVersion)

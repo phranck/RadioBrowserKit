@@ -25,7 +25,7 @@
 import Foundation
 
 struct StationResource: ApiResource {
-    typealias ModelType = [RadioStation]
+    typealias ModelType = [RadioBrowser.Station]
 
     var endpoint: ApiEndpoints
     var path: String?

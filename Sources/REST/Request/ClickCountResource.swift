@@ -25,7 +25,7 @@
 import Foundation
 
 struct ClickCountResource: ApiResource {
-    typealias ModelType = ClickCount
+    typealias ModelType = RadioBrowser.ClickCount
 
     var endpoint: ApiEndpoints {
         .clickCount
