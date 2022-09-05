@@ -31,7 +31,7 @@ let log = SwiftyBeaver.self
 public class RadioBrowserAPI: ObservableObject {
     internal static let version = "0.1.3"
     internal static let build = 1
-    internal static let apiServer: RadioBrowserServer
+    internal static let apiServer = RadioBrowserServer()
 
     // MARK: - Public API
 
@@ -48,7 +48,7 @@ public class RadioBrowserAPI: ObservableObject {
         servers: @escaping () -> [String] = { String.defaultServers },
         prefetches: Bool = true
     ) {
-        apiServer = RadioBrowserServer(servers: servers)
+        RadioBrowserAPI.apiServer.servers = servers
         RadioBrowserAPI.delegate = delegate
 
         /// Prefetch all stations by current region code
