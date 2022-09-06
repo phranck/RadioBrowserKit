@@ -78,6 +78,17 @@ internal class StationRequest: ApiFetch {
         stations(with: resource)
     }
 
+    internal func stations(order: ApiResponseOrder?, reverse: Bool?, offset: Int?, limit: Int?, hideBroken: Bool?) {
+        var resource = StationResource(endpoint: .stations)
+        resource.order = order
+        resource.reverse = reverse
+        resource.offset = offset
+        resource.limit = limit
+        resource.hideBroken = hideBroken
+
+        stations(with: resource)
+    }
+    
     internal func stations(byName name: String, order: ApiResponseOrder?, reverse: Bool?, offset: Int?, limit: Int?, hideBroken: Bool?) {
         var resource = StationResource(endpoint: .stationsByName)
         resource.path = name

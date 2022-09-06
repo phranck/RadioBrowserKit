@@ -86,25 +86,25 @@ extension RadioBrowser {
         /// The name of the station
         public var name: String
 
-        private var streamUrlString: String
+        public var streamUrlString: String
         /// The stream URL provided by the user.
-        public var streamUrl: URL {
-            URL(string: streamUrlString)!
+        public var streamUrl: URL? {
+            URL(string: streamUrlString)
         }
 
-        private var streamUrlStringResolved: String
+        public var streamUrlStringResolved: String
         /// An automatically "resolved" stream URL. Things resolved are playlists (M3U/PLS/ASX...), HTTP redirects (Code 301/302). This link is especially usefull if you use this API from a platform that is not able to do a resolve on its own (e.g. JavaScript in browser) or you just don't want to invest the time in decoding playlists yourself.
-        public var streamUrlResolved: URL {
-            URL(string: streamUrlStringResolved)!
+        public var streamUrlResolved: URL? {
+            URL(string: streamUrlStringResolved)
         }
 
-        private var websiteUrlString: String = ""
+        public var websiteUrlString: String = ""
         /// URL to the homepage of the stream, so you can direct the user to a page with more information about the stream.
         public var websiteUrl: URL? {
             URL(string: websiteUrlString)
         }
 
-        private var coverUrlString: String
+        public var coverUrlString: String
         /// URL to an icon or picture that represents the stream. (PNG, JPG).
         public var coverUrl: URL? {
             return URL(string: coverUrlString)
