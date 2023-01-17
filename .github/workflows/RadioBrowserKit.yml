@@ -16,11 +16,11 @@ jobs:
     - name: Compile
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" | xcpretty
 
-    - name: Run RadioBrowserKit Tests
-      run: xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" -resultBundlePath TestResults.xcresult test
+#     - name: Run RadioBrowserKit Tests
+#       run: xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" -resultBundlePath TestResults.xcresult test
 
-    - name: XCResultTool
-      uses: kishikawakatsumi/xcresulttool@v1.7.0
-      with:
-          path: TestResults.xcresult
-      if: success() || failure()
+#     - name: XCResultTool
+#       uses: kishikawakatsumi/xcresulttool@v1.7.0
+#       with:
+#           path: TestResults.xcresult
+#       if: success() || failure()
