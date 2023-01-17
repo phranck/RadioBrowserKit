@@ -6,15 +6,23 @@ on:
   pull_request:
     branches: [ develop, main ]
 
+env:
+  SCHEME: RadioBrowserKit
+  TEST_DEVICE: platform=iOS Simulator,name=iPhone 13,OS=15.2
+
 jobs:
   build:
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
+    - uses: maxim-lobanov/setup-xcode@v1.5.1
+      with:
+        xcode-version: latest-stable
+
     - name: Checkout
       uses: actions/checkout@v3.3.0
 
-    - name: Compile
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" | xcpretty
+    - name: Build
+      run: xcodebuild -scheme '${{ env.SCHEME }}' -destination '${{ env.TEST_DEVICE }}' build | xcpretty
 
 #     - name: Run RadioBrowserKit Tests
 #       run: xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" -resultBundlePath TestResults.xcresult test
