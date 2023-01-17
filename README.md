@@ -65,7 +65,7 @@ Actually `RadioBrowser` publishes four observed properties which you can use in 
 ## Contact
 
 * 📧 [Write me an email](mailto:hello@woodbytes.me)
-* 🐦 [Ping me on Twitter](https://twitter.com/_Woodbytes_)
+* 🦣 [Ping me on Mastodon](https://chaos.social/@phranck)
 * 📋 [Read my blog](https://woodbytes.me)
 
 ## License
