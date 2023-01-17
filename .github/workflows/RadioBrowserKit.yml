@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-11
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3.3.0
 
     - name: Compile
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" | xcpretty
@@ -20,7 +20,7 @@ jobs:
       run: xcodebuild build-for-testing -scheme RadioBrowserKit -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" -resultBundlePath TestResults.xcresult test
 
     - name: XCResultTool
-      uses: kishikawakatsumi/xcresulttool@v1.0.3
+      uses: kishikawakatsumi/xcresulttool@v1.7.0
       with:
           path: TestResults.xcresult
       if: success() || failure()
