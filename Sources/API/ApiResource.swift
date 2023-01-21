@@ -1,27 +1,3 @@
-/*
- The MIT License (MIT)
-
- Copyright © 2021 Frank Gregor <phranck@woodbytes.me>
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the “Software”), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
- */
-
 import Foundation
 
 internal protocol NetworkResource {
@@ -83,7 +59,7 @@ extension ApiResource {
 
         if let nameExact = nameExact,
            let name = name {
-            if !name.isEmpty {
+            if name.isNotEmpty {
                 components.queryItems?.append(URLQueryItem(name: "nameExact", value: nameExact.description))
             }
         }
@@ -94,7 +70,7 @@ extension ApiResource {
 
         if let countryExact = countryExact,
            let country = country {
-            if !country.isEmpty {
+            if country.isNotEmpty {
                 components.queryItems?.append(URLQueryItem(name: "countryExact", value: countryExact.description))
             }
         }
@@ -109,7 +85,7 @@ extension ApiResource {
 
         if let stateExact = stateExact,
            let state = state {
-            if !state.isEmpty {
+            if state.isNotEmpty {
                 components.queryItems?.append(URLQueryItem(name: "stateExact", value: stateExact.description))
             }
         }
@@ -120,7 +96,7 @@ extension ApiResource {
 
         if let languageExact = languageExact,
            let language = language {
-            if !language.isEmpty {
+            if language.isNotEmpty {
                 components.queryItems?.append(URLQueryItem(name: "languageExact", value: languageExact.description))
             }
         }
@@ -131,7 +107,7 @@ extension ApiResource {
 
         if let tagExact = tagExact,
            let tag = tag {
-            if !tag.isEmpty {
+            if tag.isNotEmpty {
                 components.queryItems?.append(URLQueryItem(name: "tagExact", value: tagExact.description))
             }
         }

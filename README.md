@@ -3,6 +3,7 @@
 [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 ![Issues](https://img.shields.io/github/issues/phranck/RadioBrowserKit)
 ![Tag](https://img.shields.io/github/tag/phranck/RadioBrowserKit.svg?color=blue&label=Tag)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fphranck%2FRadioBrowserKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/phranck/RadioBrowserKit)
 
 # RadioBrowserKit - The Swift SDK for Radio Browser
 
