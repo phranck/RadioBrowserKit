@@ -1,22 +1,22 @@
 import Foundation
 
 internal class RadioBrowserServer {
-    private var index = 0
+    internal var servers: () -> [String]
 
-    init() {
+    init(servers: @escaping () -> [String] = { String.defaultServers }) {
+        self.servers = servers
         log.debug("[\(RadioBrowserServer.self)] initialised")
     }
 
-    /// TODO: This MUST be changed by requesting the API to return a list available servers!
-    private let servers: [String] = [
-        "de1.api.radio-browser.info",
-        "nl1.api.radio-browser.info",
-        "fr1.api.radio-browser.info"
-    ]
-
-    /// Simple and stupid round robin over the server array.
     var host: String {
-        index = index + 1 < servers.count ? index + 1 : 0
-        return servers[index]
+        return servers().randomElement() ?? String.defaultServers.randomElement()!
     }
+}
+
+public extension String {
+    static let defaultServers: [String] = [
+        "nl1.api.radio-browser.info",
+        "at1.api.radio-browser.info",
+        "de1.api.radio-browser.info"
+    ]
 }

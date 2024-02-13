@@ -18,11 +18,18 @@ public class RadioBrowserAPI: ObservableObject {
 
     static var delegate: RadioBrowserDelegate?
 
-    public init(delegate: RadioBrowserDelegate? = nil) {
+    public init(
+        delegate: RadioBrowserDelegate? = nil, 
+        servers: @escaping () -> [String] = { String.defaultServers },
+        prefetches: Bool = true
+    ) {
+        RadioBrowserAPI.apiServer.servers = servers
         RadioBrowserAPI.delegate = delegate
 
         /// Prefetch all stations by current region code
-        stations(byCountryCode: Locale.current.regionCode!, order: .clickCount, reverse: true, limit: 50)
+        if prefetches {
+            stations(byCountryCode: Locale.current.regionCode!, order: .clickCount, reverse: true, limit: 50)
+        }
     }
 }
 

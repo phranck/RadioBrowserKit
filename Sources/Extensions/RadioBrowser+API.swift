@@ -82,6 +82,36 @@ extension RadioBrowserAPI {
 
     /**
       This call is part of the [List of radio stations](https://de1.api.radio-browser.info/#List_of_radio_stations) collection of Radio Browser.
+      It returns all radio stations in specified order.
+
+      - Parameters:
+        - order: Tells the backend how to order the response. Available options are defined by the `ApiResponseOrder` parameter type. No default is given.
+        - reverse: Tells the backend to reverse the requested order. Default is `false`.
+        - offset: Offset from which the requested data set should start. Default is `0`.
+        - limit: Number of items the API should respond, starting by `offset`. Default is `250`.
+        - hideBroken: Tells the API whether to list or not list broken radio stations. `true` - list, `false` don't list. Default is `true`.
+     */
+    public func stations(
+        order: ApiResponseOrder?,
+        reverse: Bool? = false,
+        offset: Int? = 0,
+        limit: Int? = 250,
+        hideBroken: Bool? = true,
+        then completion: @escaping ([RadioBrowser.Station]?) -> Void = { _ in }
+    ) {
+        let request = StationRequest(api: self)
+        request.stations(
+            order: order,
+            reverse: reverse,
+            offset: offset,
+            limit: limit,
+            hideBroken: hideBroken,
+            then: completion
+        )
+    }
+    
+    /**
+      This call is part of the [List of radio stations](https://de1.api.radio-browser.info/#List_of_radio_stations) collection of Radio Browser.
       It returns all radio stations which name contains the given name string with a given limit.
 
       - Parameters:
@@ -92,9 +122,25 @@ extension RadioBrowserAPI {
         - limit: Number of items the API should respond, starting by `offset`. Default is `250`.
         - hideBroken: Tells the API whether to list or not list broken radio stations. `true` - list, `false` don't list. Default is `true`.
      */
-    public func stations(byName name: String, order: ApiResponseOrder?, reverse: Bool? = false, offset: Int? = 0, limit: Int? = 250, hideBroken: Bool? = true) {
+    public func stations(
+        byName name: String,
+        order: ApiResponseOrder?,
+        reverse: Bool? = false,
+        offset: Int? = 0,
+        limit: Int? = 250,
+        hideBroken: Bool? = true,
+        then completion: @escaping ([RadioBrowser.Station]?) -> Void = { _ in }
+    ) {
         let request = StationRequest(api: self)
-        request.stations(byName: name, order: order, reverse: reverse, offset: offset, limit: limit, hideBroken: hideBroken)
+        request.stations(
+            byName: name,
+            order: order,
+            reverse: reverse,
+            offset: offset,
+            limit: limit,
+            hideBroken: hideBroken,
+            then: completion
+        )
     }
 
     /**
@@ -109,9 +155,25 @@ extension RadioBrowserAPI {
         - limit: Number of items the API should respond, starting by `offset`. Default is `250`.
         - hideBroken: Tells the API whether to list or not list broken radio stations. `true` - list, `false` don't list. Default is `true`.
      */
-    public func stations(byCountryCode countryCode: String, order: ApiResponseOrder?, reverse: Bool? = false, offset: Int? = 0, limit: Int? = 250, hideBroken: Bool? = true) {
+    public func stations(
+        byCountryCode countryCode: String,
+        order: ApiResponseOrder?,
+        reverse: Bool? = false,
+        offset: Int? = 0,
+        limit: Int? = 250,
+        hideBroken: Bool? = true,
+        then completion: @escaping ([RadioBrowser.Station]?) -> Void = { _ in }
+    ) {
         let request = StationRequest(api: self)
-        request.stations(byCountryCode: countryCode, order: order, reverse: reverse, offset: offset, limit: limit, hideBroken: hideBroken)
+        request.stations(
+            byCountryCode: countryCode,
+            order: order,
+            reverse: reverse,
+            offset: offset,
+            limit: limit,
+            hideBroken: hideBroken,
+            then: completion
+        )
     }
 
     /**
